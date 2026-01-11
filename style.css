@@ -5,6 +5,36 @@
   font-family: "Segoe UI", sans-serif;
 }
 
+.resume-btn-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.resume-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #00e6e6, #00b3b3);
+  color: #0f2027;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 30px;
+  box-shadow: 0 6px 18px rgba(0, 230, 230, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resume-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 230, 230, 0.6);
+}
+
+
+@media (max-width: 600px) {
+  .resume-btn {
+    font-size: 14px;
+    padding: 10px 22px;
+  }
+}
+
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);

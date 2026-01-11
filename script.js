@@ -1,23 +1,14 @@
-
-
-
-function playSound(type) {
-  let audio = new Audio(`sounds/${type}.wav`);
-  audio.play();
-}
-
-
-
 let levelText = document.querySelector("h3");
 let buttons = document.querySelectorAll(".btn");
 let introText = document.getElementById("introText");
+let overlay = document.getElementById("startOverlay");
 
 let curr = 0;
 let system = [];
 let user = [];
 let started = false;
-const colors = ["red", "blue", "green", "yellow"];
 
+const colors = ["red", "blue", "green", "yellow"];
 
 const text =
   "Building scalable web applications and interactive experiences using modern JavaScript, backend engineering, and clean UI design.";
@@ -25,16 +16,17 @@ let idx = 0;
 
 function typeIntro() {
   if (idx < text.length) {
-    if (text[idx] === " ") {
-      introText.innerHTML += "&nbsp;";
-    } else {
-      introText.innerText += text[idx];
-    }
+    introText.innerHTML += text[idx] === " " ? "&nbsp;" : text[idx];
     idx++;
-    setTimeout(typeIntro, 40);
+    setTimeout(typeIntro, 35);
   }
 }
 typeIntro();
+
+
+function playSound(type) {
+  new Audio(`sounds/${type}.wav`).play();
+}
 
 
 function levelInc() {
@@ -43,25 +35,23 @@ function levelInc() {
 }
 
 function flash(btn) {
-  btn.classList.add("flash");
   playSound("correct");
+  btn.classList.add("flash");
   setTimeout(() => btn.classList.remove("flash"), 200);
 }
 
 function playSequence() {
   user = [];
-  system.forEach((color, index) => {
+  system.forEach((color, i) => {
     setTimeout(() => {
-      let btn = document.querySelector(`.${color}`);
-      flash(btn);
-    }, index * 600);
+      flash(document.querySelector(`.${color}`));
+    }, i * 600);
   });
 }
 
 function nextStep() {
   let rand = Math.floor(Math.random() * 4);
-  let color = colors[rand];
-  system.push(color);
+  system.push(colors[rand]);
   playSequence();
 }
 
@@ -75,16 +65,15 @@ function check(index) {
     }
   } else {
     playSound("wrong");
-    levelText.innerText = "Game Over! Press any key to restart";
+    levelText.innerText = "Game Over! Tap to restart";
     reset();
   }
 }
 
-
+/* Events */
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
     if (!started) return;
-
     let color = btn.classList[1];
     user.push(color);
     flash(btn);
@@ -92,15 +81,18 @@ buttons.forEach(btn => {
   });
 });
 
-window.addEventListener("keydown", () => {
-  if (!started) {
-    started = true;
-    curr = 0;
-    system = [];
-    levelInc();
-    nextStep();
-  }
-});
+function startGame() {
+  if (started) return;
+  started = true;
+  curr = 0;
+  system = [];
+  levelInc();
+  nextStep();
+  overlay.style.display = "none";
+}
+
+overlay.addEventListener("click", startGame);
+window.addEventListener("keydown", startGame);
 
 
 function reset() {
@@ -108,4 +100,5 @@ function reset() {
   curr = 0;
   system = [];
   user = [];
+  overlay.style.display = "flex";
 }

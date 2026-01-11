@@ -1,13 +1,3 @@
-
-
-
-function playSound(type) {
-  let audio = new Audio(`sounds/${type}.wav`);
-  audio.play();
-}
-
-
-
 let levelText = document.querySelector("h3");
 let buttons = document.querySelectorAll(".btn");
 let introText = document.getElementById("introText");
@@ -16,6 +6,7 @@ let curr = 0;
 let system = [];
 let user = [];
 let started = false;
+
 const colors = ["red", "blue", "green", "yellow"];
 
 
@@ -31,10 +22,16 @@ function typeIntro() {
       introText.innerText += text[idx];
     }
     idx++;
-    setTimeout(typeIntro, 40);
+    setTimeout(typeIntro, 35);
   }
 }
 typeIntro();
+
+
+function playSound(type) {
+  let audio = new Audio(`sounds/${type}.wav`);
+  audio.play();
+}
 
 
 function levelInc() {
@@ -43,8 +40,8 @@ function levelInc() {
 }
 
 function flash(btn) {
-  btn.classList.add("flash");
   playSound("correct");
+  btn.classList.add("flash");
   setTimeout(() => btn.classList.remove("flash"), 200);
 }
 
@@ -84,7 +81,6 @@ function check(index) {
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
     if (!started) return;
-
     let color = btn.classList[1];
     user.push(color);
     flash(btn);
@@ -109,3 +105,4 @@ function reset() {
   system = [];
   user = [];
 }
+

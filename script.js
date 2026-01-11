@@ -7,11 +7,6 @@ let curr = 0;
 let system = [];
 let user = [];
 let started = false;
-<<<<<<< HEAD
-=======
-
-const colors = ["red", "blue", "green", "yellow"];
->>>>>>> a8b8614692c9a0c7b802ac515389ef08ce54084d
 
 const colors = ["red", "blue", "green", "yellow"];
 
@@ -30,12 +25,7 @@ typeIntro();
 
 
 function playSound(type) {
-<<<<<<< HEAD
   new Audio(`sounds/${type}.wav`).play();
-=======
-  let audio = new Audio(`sounds/${type}.wav`);
-  audio.play();
->>>>>>> a8b8614692c9a0c7b802ac515389ef08ce54084d
 }
 
 

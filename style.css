@@ -5,7 +5,6 @@
   font-family: "Segoe UI", sans-serif;
 }
 
-<<<<<<< HEAD
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
@@ -31,23 +30,6 @@ body {
   font-weight: bold;
   color: #00e6e6;
   animation: pulse 1.2s infinite;
-=======
-.resume-btn-container {
-  margin: 20px 0;
-  text-align: center;
-}
-
-.resume-btn {
-  display: inline-block;
-  padding: 12px 28px;
-  background: linear-gradient(135deg, #00e6e6, #00b3b3);
-  color: #0f2027;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 30px;
-  box-shadow: 0 6px 18px rgba(0, 230, 230, 0.45);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
->>>>>>> a8b8614692c9a0c7b802ac515389ef08ce54084d
 }
 
 @keyframes pulse {
@@ -57,31 +39,8 @@ body {
 }
 
 
-<<<<<<< HEAD
 .game-container {
   margin-top: 40px;
-=======
-@media (max-width: 600px) {
-  .resume-btn {
-    font-size: 14px;
-    padding: 10px 22px;
-  }
-}
-
-body {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Game */
-.game-container {
-  margin-top: 30px;
->>>>>>> a8b8614692c9a0c7b802ac515389ef08ce54084d
   background: rgba(255,255,255,0.1);
   padding: 25px;
   border-radius: 16px;
@@ -121,22 +80,14 @@ body {
   box-shadow: 0 0 20px white;
 }
 
-<<<<<<< HEAD
 
-=======
-/* Intro Box */
->>>>>>> a8b8614692c9a0c7b802ac515389ef08ce54084d
 .intro-box {
   width: 100%;
   background: #0f2027;
   display: flex;
   align-items: center;
   padding: 20px;
-<<<<<<< HEAD
   margin-top: 25px;
-=======
-  margin-top: 20px;
->>>>>>> a8b8614692c9a0c7b802ac515389ef08ce54084d
 }
 
 .intro-box img {
@@ -155,7 +106,6 @@ body {
 .intro-right p {
   margin-top: 8px;
   font-size: 14px;
-<<<<<<< HEAD
 }
 
 
@@ -176,21 +126,6 @@ body {
 }
 
 
-@media (max-width: 600px) {
-  .intro-box {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .intro-box img {
-    margin-bottom: 10px;
-    margin-right: 0;
-  }
-=======
->>>>>>> a8b8614692c9a0c7b802ac515389ef08ce54084d
-}
-
-/* Mobile */
 @media (max-width: 600px) {
   .intro-box {
     flex-direction: column;
